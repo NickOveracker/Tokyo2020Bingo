@@ -278,6 +278,7 @@ Math.seed = function(s) {
 // thx to https://stackoverflow.com/a/2450976/2535523
 generateCard = function(name) {
   name = name.replace("@", "");
+  name = name.toLowerCase();
 
   var nameCode = nameToInt(name);
   var seededRandom = Math.seed(nameCode);
