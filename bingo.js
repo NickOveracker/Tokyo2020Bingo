@@ -248,57 +248,81 @@ var options = [
 
 // Map Twitter usernames to unique numbers. They are limited to 15 characters, so we can do this with multiples of the first 15 primes.
 nameToInt = function(name) {
-		retval = 0;
+    retval = 0;
 
-		primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47];
+    primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47];
 
-		for(var ii = 0; ii < name.length && ii < primes.length; ii++) {
-				retval += primes[ii] * name.charCodeAt(ii);
-		}
+    for (var ii = 0; ii < name.length && ii < primes.length; ii++) {
+        retval += primes[ii] * name.charCodeAt(ii);
+    }
 
-		return retval;
+    return retval;
 };
 
 // thx to https://stackoverflow.com/a/29450606/2535523
 Math.seed = function(s) {
     var mask = 0xffffffff;
-    var m_w  = (123456789 + s) & mask;
-    var m_z  = (987654321 - s) & mask;
+    var m_w = (123456789 + s) & mask;
+    var m_z = (987654321 - s) & mask;
 
     return function() {
-      m_z = (36969 * (m_z & 65535) + (m_z >>> 16)) & mask;
-      m_w = (18000 * (m_w & 65535) + (m_w >>> 16)) & mask;
+        m_z = (36969 * (m_z & 65535) + (m_z >>> 16)) & mask;
+        m_w = (18000 * (m_w & 65535) + (m_w >>> 16)) & mask;
 
-      var result = ((m_z << 16) + (m_w & 65535)) >>> 0;
-      result /= 4294967296;
-      return result;
+        var result = ((m_z << 16) + (m_w & 65535)) >>> 0;
+        result /= 4294967296;
+        return result;
     }
 };
 
 // thx to https://stackoverflow.com/a/2450976/2535523
 generateCard = function(name) {
-  name = name.replace("@", "");
-  name = name.toLowerCase();
+    name = name.replace("@", "");
+    name = name.toLowerCase();
 
-  var nameCode = nameToInt(name);
-  var seededRandom = Math.seed(nameCode);
-  var currentIndex = options.length,  randomIndex;
+    var nameCode = nameToInt(name);
+    var seededRandom = Math.seed(nameCode);
+    var currentIndex = options.length,
+        randomIndex;
 
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
 
-    // Pick a remaining element...
-    randomIndex = Math.floor(seededRandom() * currentIndex);
-    currentIndex--;
+        // Pick a remaining element...
+        randomIndex = Math.floor(seededRandom() * currentIndex);
+        currentIndex--;
 
-    // And swap it with the current element.
-    [options[currentIndex], options[randomIndex]] = [
-      options[randomIndex], options[currentIndex]];
-  }
+        // And swap it with the current element.
+        [options[currentIndex], options[randomIndex]] = [
+            options[randomIndex], options[currentIndex]
+        ];
+    }
 
-  var retArr = options.slice(0,24);
-  retArr.splice(12,0,"FREE SPACE");
-  return retArr;
+    var retArr = options.slice(0, 24);
+    retArr.splice(12, 0, "FREE SPACE");
+    return retArr;
 };
 
-//generateCard("nick_overacker");
+var updateCard = function() {
+    card = generateCard(document.getElementById("username-input").value);
+
+    tbl = document.getElementById("bingotable");
+
+    if (tbl.children.length > 0) {
+        tbl.children[0].remove();
+    }
+
+    var tbdy = document.createElement('tbody');
+
+    for (var ii = 0; ii < 5; ii++) {
+        var tr = document.createElement('tr');
+
+        for (var jj = 0; jj < 5; jj++) {
+            var td = document.createElement('td');
+            td.appendChild(document.createTextNode(card[ii * 5 + jj]));
+            tr.appendChild(td)
+        }
+        tbdy.appendChild(tr);
+    }
+    tbl.appendChild(tbdy);
+};
