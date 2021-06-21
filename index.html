@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html><head lang="en">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>Tokyo 2020 Bingo!</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <script src="./bingo.js">
+</head>
+
+<body>
+    <header>
+        <span id="photo-credit">Photo by me.</span>
+        <span id="e-begging"><a href="https://ko-fi.com/twentynine">Buy me coffee!</a></span>
+    </header>
+    <div id="wrapper-bg">
+        <div id="wrapper">
+        <main>
+            <form action="#" onsubmit="updateCard(); return false;">
+
+                <div>
+                    <input id="username-input" class="username-field" type="text" placeholder="Your Twitter handle (e.g. @github)" />
+
+                    <input type="submit" class="input-button" value="OK" />
+                </div>
+            </form>
+      
+            <div>
+                    <table id="bingotable"></table>
+            </div>
+        </main>
+        </div>
+    </div>
+</body></html>
