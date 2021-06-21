@@ -277,6 +277,8 @@ Math.seed = function(s) {
 
 // thx to https://stackoverflow.com/a/2450976/2535523
 generateCard = function(name) {
+  name = name.replace("@", "");
+
   var nameCode = nameToInt(name);
   var seededRandom = Math.seed(nameCode);
   var currentIndex = options.length,  randomIndex;
