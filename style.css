@@ -64,17 +64,12 @@ tr {
     width: 90%;
 }
 
-.conjugation-table th {
-    width: 40%;
-    padding-left: 5px;
-}
-
 th, td {
     border-style: inset;
     border-color: #aaaaaa;
     border-width: 1px;
     padding: 2px;
-    width: 45%;
+    width: 20%;
     padding-left: 5px;
 }
 
