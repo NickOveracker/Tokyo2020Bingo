@@ -1,0 +1,87 @@
+body {
+    background-color: #35363b;
+    background-image: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+a {
+    color: darkred;
+}
+
+#wrapper h1 {
+    margin-left: 5%;
+    color: #773709;
+}
+
+header {
+    padding-bottom: 1px;
+}
+
+header span {
+    opacity: 70%;
+    right: 0;
+    bottom: 0;
+    padding: 0 5px 0;
+    background-color: #35190a;
+    color: #faeecc;
+    text-align: center;
+}
+
+header a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #faeecc;
+}
+
+div #wrapper {
+    padding: 10px;
+    width: 60%;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    margin-top: 3%;
+}
+
+table {
+    border-style: solid;
+    border-color: #aaaaaa;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-spacing: 0px;
+    margin-bottom: 1.5em;
+    margin-top: 0.0em;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+}
+
+tr {
+    border-style: inset;
+    border-color: #aaaaaa;
+    border-width: 1px;
+    width: 90%;
+}
+
+.conjugation-table th {
+    width: 40%;
+    padding-left: 5px;
+}
+
+th, td {
+    border-style: inset;
+    border-color: #aaaaaa;
+    border-width: 1px;
+    padding: 2px;
+    width: 45%;
+    padding-left: 5px;
+}
+
+#photo-credit {
+    float: left;
+}
+
+#e-begging {
+    float: right;
+}
