@@ -279,10 +279,12 @@ Math.seed = function(s) {
 generateCard = function(name) {
     name = name.replace("@", "");
     name = name.toLowerCase();
+    // clone the options array
+    var arr = [...options];
 
     var nameCode = nameToInt(name);
     var seededRandom = Math.seed(nameCode);
-    var currentIndex = options.length,
+    var currentIndex = arr.length,
         randomIndex;
 
     // While there remain elements to shuffle...
@@ -293,12 +295,12 @@ generateCard = function(name) {
         currentIndex--;
 
         // And swap it with the current element.
-        [options[currentIndex], options[randomIndex]] = [
-            options[randomIndex], options[currentIndex]
+        [arr[currentIndex], arr[randomIndex]] = [
+            arr[randomIndex], arr[currentIndex]
         ];
     }
 
-    var retArr = options.slice(0, 24);
+    var retArr = arr.slice(0, 24);
     retArr.splice(12, 0, "FREE SPACE");
     return retArr;
 };
