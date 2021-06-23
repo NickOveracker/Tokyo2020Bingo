@@ -286,7 +286,7 @@ var shuffle = function(randomFunc, inputArr) {
     while (0 !== currentIndex) {
 
         // Pick a remaining element...
-        randomIndex = Math.floor(seededRandom() * currentIndex);
+        randomIndex = Math.floor(randomFunc() * currentIndex);
         currentIndex--;
 
         // And swap it with the current element.
