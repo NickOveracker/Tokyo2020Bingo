@@ -1,5 +1,5 @@
 // thx to https://twitter.com/jamesajack/status/1406946332531585030
-var options = [
+var participantInfections = [
     "Greece (GRE) Infection",
     "Refugee Olympic Team (EOR) Infection",
     "Iceland (ISL) Infection",
@@ -204,7 +204,9 @@ var options = [
     "Lebanon (LBN) Infection",
     "United States (USA) Infection",
     "France (FRA) Infection",
-    "Japan (JPN) Infection",
+    "Japan (JPN) Infection"
+];
+var otherEvents = [
     "State of emergency in Tokyo reinstated",
     "Suga resigns",
     "Koike resigns",
@@ -275,18 +277,11 @@ Math.seed = function(s) {
     }
 };
 
-// thx to https://stackoverflow.com/a/2450976/2535523
-generateCard = function(name) {
-    name = name.replace("@", "");
-    name = name.toLowerCase();
-    // clone the options array
-    var arr = [...options];
-
-    var nameCode = nameToInt(name);
-    var seededRandom = Math.seed(nameCode);
+var shuffle = function(randomFunc, inputArr) {
     var currentIndex = arr.length,
-        randomIndex;
-
+    var randomIndex;
+    var arr = [... inputArr];
+    
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
 
@@ -299,14 +294,38 @@ generateCard = function(name) {
             arr[randomIndex], arr[currentIndex]
         ];
     }
+    
+    return arr;
+};
 
-    var retArr = arr.slice(0, 24);
+// thx to https://stackoverflow.com/a/2450976/2535523
+var generateCard = function(name, interesting = false) {
+    name = name.replace("@", "");
+    name = name.toLowerCase();
+    
+    var nameCode = nameToInt(name);
+    var seededRandom = Math.seed(nameCode);
+    var retArr;
+    
+    if(interesting) {
+        var arr1 = shuffle(seededRandom, participantInfections);
+        var arr2 = shuffle(seededRandom, otherEvents);
+        var retArr  = arr1.slice(0,12).concat(arr2.slice(0,12));
+        var retArr = shuffle(seededRandom, retArr);
+    }
+    else {
+        // clone the options array
+        retArr = participantInfections.concat(otherEvents);
+        retArr = shuffle(seededRandom, retArr);
+        retArr = retArr.slice(0, 24);
+    }
+
     retArr.splice(12, 0, "FREE SPACE");
     return retArr;
 };
 
-var updateCard = function() {
-    card = generateCard(document.getElementById("username-input").value);
+var updateCard = function(interesting = false) {
+    card = generateCard(document.getElementById("username-input").value, interesting);
 
     tbl = document.getElementById("bingotable");
 
