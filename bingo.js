@@ -278,7 +278,7 @@ Math.seed = function(s) {
 };
 
 var shuffle = function(randomFunc, inputArr) {
-    var currentIndex = arr.length;
+    var currentIndex = inputArr.length;
     var randomIndex;
     var arr = [... inputArr];
     
