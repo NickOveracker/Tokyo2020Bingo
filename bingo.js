@@ -324,8 +324,8 @@ var generateCard = function(name, interesting = false) {
     return retArr;
 };
 
-var updateCard = function(interesting = false) {
-    card = generateCard(document.getElementById("username-input").value, interesting);
+var updateCard = function() {
+    card = generateCard(document.getElementById("username-input").value, document.getElementById("interesting-mode-input").checked);
 
     tbl = document.getElementById("bingotable");
 
