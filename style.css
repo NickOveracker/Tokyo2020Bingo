@@ -84,7 +84,7 @@ th, td {
     background-color: lightgreen;
 }
 
-.checked-off a {
+td a {
     color: black;
     text-decoration: none;
     font-weight: bold;
