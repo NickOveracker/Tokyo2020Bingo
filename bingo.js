@@ -354,7 +354,7 @@ var updateCard = function() {
             } else {
                 td.onclick = ((iii, jjj) => {
                     return () => {
-                        window.open("https://www.google.com/search?q=" + encodeURIComponent(card[ii * 5 + jj][0]), '_blank').focus();
+                        window.open("https://www.google.com/search?q=" + encodeURIComponent(card[iii * 5 + jjj][0]), '_blank').focus();
                     }
                 })(ii, jj);
             }
