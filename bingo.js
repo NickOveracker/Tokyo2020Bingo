@@ -357,7 +357,7 @@ var updateCard = function() {
             }
             tr.appendChild(td)
         }
-        tbdy.appendChild(tr);
+        tbdy.appendChild(a);
     }
     tbl.appendChild(tbdy);
 };
