@@ -353,7 +353,7 @@ var updateCard = function() {
 				a.title = "Check for updates!";
 			}
 			
-            td.appendChild(document.createTextNode(card[ii * 5 + jj][0]));
+            td.appendChild(a);
             tr.appendChild(td)
         }
         tbdy.appendChild(tr);
