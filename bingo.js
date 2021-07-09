@@ -341,7 +341,7 @@ var updateCard = function() {
         for (var jj = 0; jj < 5; jj++) {
             var td = document.createElement('td');
 			var a = document.createElement('a');
-			var txt = document.createTextElement(a.href = card[ii * 5 + jj][0]);
+			var txt = document.createTextNode(a.href = card[ii * 5 + jj][0]);
 			a.appendChild(txt);
 			
 			if(card[ii * 5 + jj][1]) {
