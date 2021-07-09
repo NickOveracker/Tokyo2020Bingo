@@ -349,7 +349,7 @@ var updateCard = function() {
 				a.title = "Citation"
 				td.className = "checked-off";
 			} else {
-				a.href = "https://www.google.com/search?q=" + encodeURIComponent(a.href = card[ii * 5 + jj][0].replaceAll(" ", "+"));
+				a.href = "https://www.google.com/search?q=" + encodeURIComponent(a.href = card[ii * 5 + jj][0]);
 				a.title = "Check for updates!";
 			}
 			
