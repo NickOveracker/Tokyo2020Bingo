@@ -345,14 +345,18 @@ var updateCard = function() {
             td.appendChild(txt);
 
             if(card[ii * 5 + jj][1]) {
-                td.onclick = function openInNewTab(url) {
-                    window.open(card[ii * 5 + jj][2], '_blank').focus();
-                };
+                td.onclick = = ((iii, jjj) => {
+                    return () => {
+                        window.open(card[iii * 5 + jjj][2], '_blank').focus();
+                    }
+                })(ii, jj);
                 td.className = "checked-off";
             } else {
-                td.onclick = function openInNewTab(url) {
-                    window.open("https://www.google.com/search?q=" + encodeURIComponent(a.href = card[ii * 5 + jj][0]), '_blank').focus();
-                };
+                td.onclick = = ((iii, jjj) => {
+                    return () => {
+                        window.open("https://www.google.com/search?q=" + encodeURIComponent(card[ii * 5 + jj][0]), '_blank').focus();
+                    }
+                })(ii, jj);
             }
             tr.appendChild(td)
         }
