@@ -83,3 +83,9 @@ th, td {
 .checked-off {
     background-color: lightgreen;
 }
+
+.checked-off a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
