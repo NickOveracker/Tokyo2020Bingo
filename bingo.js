@@ -345,7 +345,7 @@ var updateCard = function() {
             td.appendChild(txt);
 
             if(card[ii * 5 + jj][1]) {
-                td.onclick = = ((iii, jjj) => {
+                td.onclick = ((iii, jjj) => {
                     return () => {
                         window.open(card[iii * 5 + jjj][2], '_blank').focus();
                     }
