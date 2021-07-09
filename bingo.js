@@ -343,6 +343,7 @@ var updateCard = function() {
 			var a = document.createElement('a');
 			var txt = document.createTextNode(a.href = card[ii * 5 + jj][0]);
 			a.appendChild(txt);
+		        a.target = "_blank";
 			
 			if(card[ii * 5 + jj][1]) {
 				a.href = card[ii * 5 + jj][2];
