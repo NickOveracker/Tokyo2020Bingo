@@ -340,21 +340,21 @@ var updateCard = function() {
 
         for (var jj = 0; jj < 5; jj++) {
             var td = document.createElement('td');
-			var a = document.createElement('a');
-			var txt = document.createTextNode(a.href = card[ii * 5 + jj][0]);
-			a.appendChild(txt);
-		        a.target = "_blank";
-			
-			if(card[ii * 5 + jj][1]) {
-				a.href = card[ii * 5 + jj][2];
-				a.title = "Citation"
-				td.className = "checked-off";
-			} else {
-				a.href = "https://www.google.com/search?q=" + encodeURIComponent(a.href = card[ii * 5 + jj][0]);
-				a.title = "Check for updates!";
-			}
-			
-            td.appendChild(a);
+            var a = document.createElement('a');
+            var txt = document.createTextNode(a.href = card[ii * 5 + jj][0]);
+
+            td.appendChild(txt);
+            a.appendChild(td);
+            a.target = "_blank";
+
+            if(card[ii * 5 + jj][1]) {
+                a.href = card[ii * 5 + jj][2];
+                a.title = "Citation"
+                td.className = "checked-off";
+            } else {
+                a.href = "https://www.google.com/search?q=" + encodeURIComponent(a.href = card[ii * 5 + jj][0]);
+                a.title = "Check for updates!";
+            }
             tr.appendChild(td)
         }
         tbdy.appendChild(tr);
