@@ -320,7 +320,7 @@ var generateCard = function(name, interesting = false) {
         retArr = retArr.slice(0, 24);
     }
 
-    retArr.splice(12, 0, ["FREE SPACE", true, "http://www.nyan.cat/index.php?cat=gb");
+    retArr.splice(12, 0, ["FREE SPACE", true, "http://www.nyan.cat/index.php?cat=gb"]);
     return retArr;
 };
 
