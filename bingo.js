@@ -225,7 +225,7 @@ var otherEvents = [
     ["Japan runs out of vaccines", false],
     ["Olympics canceled", false],
     ["All spectators banned", true, "https://edition.cnn.com/2021/07/08/asia/japan-state-of-emergency-olympics-intl-hnk/index.html"],
-    ["Non-vaccinated athletes are vaccinated in Japan", false],
+    ["Non-vaccinated athletes are vaccinated in Japan", true, "https://english.kyodonews.net/news/2021/05/629bd2373907-japan-to-start-vaccinating-olympic-athletes-from-june-1-joc.html"],
     ["Athlete hospitalized due to Japanese summer heat", false],
     ["Bach catches Covid", false],
     ["Olympic mascots wear masks", false],
