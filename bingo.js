@@ -340,7 +340,7 @@ var updateCard = function() {
 
         for (var jj = 0; jj < 5; jj++) {
             var td = document.createElement('td');
-            var txt = document.createTextNode(a.href = card[ii * 5 + jj][0]);
+            var txt = document.createTextNode(card[ii * 5 + jj][0]);
             
             td.appendChild(txt);
 
