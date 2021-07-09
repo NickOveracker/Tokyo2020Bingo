@@ -79,3 +79,7 @@ th, td {
 #e-begging {
     float: right;
 }
+
+.checked-off {
+    background-color: lightgreen;
+}
