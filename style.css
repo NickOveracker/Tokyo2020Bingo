@@ -25,15 +25,15 @@ header span {
     right: 0;
     bottom: 0;
     padding: 0 5px 0;
-    background-color: #35190a;
-    color: #faeecc;
+    background-color: #red;
+    color: crimson;
     text-align: center;
 }
 
 header a {
     text-decoration: none;
     font-weight: bold;
-    color: #faeecc;
+    color: #black;
 }
 
 div #wrapper {
