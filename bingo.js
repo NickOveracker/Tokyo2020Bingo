@@ -1,6 +1,6 @@
 // thx to https://twitter.com/jamesajack/status/1406946332531585030
 var participantInfections = [
-    "Greece (GRE) Infection", false],
+    ["Greece (GRE) Infection", false],
     ["Refugee Olympic Team (EOR) Infection", false],
     ["Iceland (ISL) Infection", false],
     ["Ireland (IRL) Infection", false],
