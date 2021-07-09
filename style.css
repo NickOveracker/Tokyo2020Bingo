@@ -84,7 +84,6 @@ th, td {
     background-color: lightgreen;
 }
 
-td a {
-    color: black;
-    text-decoration: none;
+td {
+    cursor: pointer;
 }
