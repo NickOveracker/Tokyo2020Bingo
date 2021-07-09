@@ -352,7 +352,7 @@ var updateCard = function() {
                 })(ii, jj);
                 td.className = "checked-off";
             } else {
-                td.onclick = = ((iii, jjj) => {
+                td.onclick = ((iii, jjj) => {
                     return () => {
                         window.open("https://www.google.com/search?q=" + encodeURIComponent(card[ii * 5 + jj][0]), '_blank').focus();
                     }
