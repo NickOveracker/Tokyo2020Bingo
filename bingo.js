@@ -193,7 +193,7 @@ var participantInfections = [
     ["Jordan (JOR) Infection", false],
     ["Laos (LAO) Infection", false],
     ["Latvia (LAT) Infection", false],
-    ["Lithuania (LTU) Infection", false],
+    ["Lithuania (LTU) Infection (pending verification)", true, "https://english.kyodonews.net/news/2021/07/94f8329e5e91-olympian-from-lithuania-tests-positive-for-coronavirus-in-japan.html"],
     ["Libya (LBA) Infection", false],
     ["Liechtenstein (LIE) Infection", false],
     ["Liberia (LBR) Infection", false],
