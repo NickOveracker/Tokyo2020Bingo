@@ -64,9 +64,9 @@ tr {
 }
 
 th, td {
-    border-style: inset;
+    border-style: outset;
     border-color: #aaaaaa;
-    border-width: 1px;
+    border-width: 3px;
     padding: 10px;
     width: 20%;
 }
