@@ -1,5 +1,5 @@
 // thx to https://twitter.com/jamesajack/status/1406946332531585030
-var participantInfections = [
+let participantInfections = [
     ["Greece (GRE) Infection", false],
     ["Refugee Olympic Team (EOR) Infection", false],
     ["Iceland (ISL) Infection", false],
@@ -206,7 +206,7 @@ var participantInfections = [
     ["France (FRA) Infection", false],
     ["Japan (JPN) Infection", false]
 ];
-var otherEvents = [
+let otherEvents = [
     ["State of emergency in Tokyo reinstated", true, "https://edition.cnn.com/2021/07/08/asia/japan-state-of-emergency-olympics-intl-hnk/index.html"],
     ["Suga resigns", false],
     ["Koike resigns", false],
@@ -249,38 +249,43 @@ var otherEvents = [
 ];
 
 // Map Twitter usernames to unique numbers. They are limited to 15 characters, so we can do this with multiples of the first 15 primes.
+// This one's a Nick Overacker Original (tm) and it's why I make the big bucks in some alternate timeline
 nameToInt = function(name) {
     retval = 0;
 
     primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47];
 
-    for (var ii = 0; ii < name.length && ii < primes.length; ii++) {
+    for (let ii = 0; ii < name.length && ii < primes.length; ii++) {
         retval += primes[ii] * name.charCodeAt(ii);
     }
 
     return retval;
 };
 
+// Use this function to generate pseudo-random numbers based on an input seed
+// This allows us to generate the same Bingo card every time for a given username
 // thx to https://stackoverflow.com/a/29450606/2535523
 Math.seed = function(s) {
-    var mask = 0xffffffff;
-    var m_w = (123456789 + s) & mask;
-    var m_z = (987654321 - s) & mask;
+    let mask = 0xffffffff;
+    let m_w = (123456789 + s) & mask;
+    let m_z = (987654321 - s) & mask;
 
     return function() {
         m_z = (36969 * (m_z & 65535) + (m_z >>> 16)) & mask;
         m_w = (18000 * (m_w & 65535) + (m_w >>> 16)) & mask;
 
-        var result = ((m_z << 16) + (m_w & 65535)) >>> 0;
+        let result = ((m_z << 16) + (m_w & 65535)) >>> 0;
         result /= 4294967296;
         return result;
     }
 };
 
-var shuffle = function(randomFunc, inputArr) {
-    var currentIndex = inputArr.length;
-    var randomIndex;
-    var arr = [... inputArr];
+// Shuffle the bingo statements using our new Math.seed function
+// thx to https://stackoverflow.com/a/2450976/2535523
+let shuffle = function(randomFunc, inputArr) {
+    let currentIndex = inputArr.length;
+    let randomIndex;
+    let arr = [... inputArr];
     
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
@@ -298,23 +303,25 @@ var shuffle = function(randomFunc, inputArr) {
     return arr;
 };
 
-// thx to https://stackoverflow.com/a/2450976/2535523
-var generateCard = function(name, interesting = false) {
+// A pseudo-unique pseudo-randomly generated card for every username
+let generateCard = function(name, interesting = false) {
     name = name.replace("@", "");
     name = name.toLowerCase();
     
-    var nameCode = nameToInt(name);
-    var seededRandom = Math.seed(nameCode);
-    var retArr;
+    let nameCode = nameToInt(name);
+    let seededRandom = Math.seed(nameCode);
+    let retArr;
     
     if(interesting) {
-        var arr1 = shuffle(seededRandom, participantInfections);
-        var arr2 = shuffle(seededRandom, otherEvents);
-        var retArr  = arr1.slice(0,12).concat(arr2.slice(0,12));
-        var retArr = shuffle(seededRandom, retArr);
+        // Half infections, half other events
+        let arr1 = shuffle(seededRandom, participantInfections);
+        let arr2 = shuffle(seededRandom, otherEvents);
+        retArr  = arr1.slice(0,12).concat(arr2.slice(0,12));
+        retArr = shuffle(seededRandom, retArr);
     }
     else {
-        // clone the options array
+        // No constraints on number of each category
+        // (i.e., usually almost all boring country + infection entries)
         retArr = participantInfections.concat(otherEvents);
         retArr = shuffle(seededRandom, retArr);
         retArr = retArr.slice(0, 24);
@@ -324,36 +331,49 @@ var generateCard = function(name, interesting = false) {
     return retArr;
 };
 
-var updateCard = function() {
+// found the beef for you, @wendys
+// Generate a bingo card and display it
+let updateCard = function() {
+    // Actual card generation step
     card = generateCard(document.getElementById("username-input").value, document.getElementById("interesting-mode-input").checked);
 
-    tbl = document.getElementById("bingotable");
+    let tbl = document.getElementById("bingotable");
 
+    // Remove any existing elements (in case a card has already been generated)
     if (tbl.children.length > 0) {
         tbl.children[0].remove();
     }
 
-    var tbdy = document.createElement('tbody');
+    // Populate the table
+    let tbdy = document.createElement('tbody');
 
-    for (var ii = 0; ii < 5; ii++) {
-        var tr = document.createElement('tr');
+    // Row loop
+    for (let ii = 0; ii < 5; ii++) {
+        let tr = document.createElement('tr');
 
-        for (var jj = 0; jj < 5; jj++) {
-            var td = document.createElement('td');
-            var txt = document.createTextNode(card[ii * 5 + jj][0]);
+        // Column loop
+        for (let jj = 0; jj < 5; jj++) {
+            let td = document.createElement('td');
+            let txt = document.createTextNode(card[ii * 5 + jj][0]);
             
+            // Add the bingo cell text
             td.appendChild(txt);
 
+            // Linkify the cell
             if(card[ii * 5 + jj][1]) {
+                // Checked-off cells (things that have happened and been verified)
                 td.onclick = ((iii, jjj) => {
                     return () => {
+                        // Link to news source
                         window.open(card[iii * 5 + jjj][2], '_blank').focus();
                     }
                 })(ii, jj);
                 td.className = "checked-off";
             } else {
+                // Unchecked cells (not yet happened/verified)
                 td.onclick = ((iii, jjj) => {
                     return () => {
+                        // Link to google search
                         window.open("https://www.google.com/search?q=" + encodeURIComponent(card[iii * 5 + jjj][0]), '_blank').focus();
                     }
                 })(ii, jj);
