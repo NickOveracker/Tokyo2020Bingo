@@ -217,7 +217,7 @@ let otherEvents = [
     ["Cluster in the Olympic village", true, "https://english.satarknews.com/two-athletes-test-positive-for-covid-19-in-olympic-village-officials/"],
     ["Media cluster", false],
     ["Volunteer cluster", false],
-    ["Spectator cluster", false],
+    ["Russian Olympic Committee (ROC) Infection", true, "https://tass.com/sport/1313943"],
     ["Training camp cluster", false],
     ["Athletes caught sightseeing", false],
     ["Foreign media caught sightseeing", false],
