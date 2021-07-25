@@ -235,7 +235,7 @@ let otherEvents = [
     ["Delta becomes the new dominant variant in Japan", false],
     ["No Japanese sponsors run any TV advertising mentioning the Olympics", false],
     ["Athletes complain because of the lack of vegan food options", false],
-    ["Athletes complain because of the lack of halal food options", false],
+    ["Athletes complain because of the lack of halal food options", true, "https://nordot.app/791573286711459840"],
     ["Athletes complain because of the lack of sightseeing options", true, "https://www.japantimes.co.jp/sports/2021/06/12/olympics/summer-olympics/softball/australia-softball-tokyo-olympics-coronavirus/"],
     ["Athletes complain because of the lack of free condoms", false],
     ["Athletes complain because of happoshu", false],
