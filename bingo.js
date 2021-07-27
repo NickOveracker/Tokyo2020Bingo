@@ -213,7 +213,7 @@ let otherEvents = [
     ["Over 1,500 new infections per day in Tokyo", true, "https://stopcovid19.metro.tokyo.lg.jp/en"],
     ["Over 100% hospital bed occupancy in Tokyo", false],
     ["Over 25 deaths per day in Tokyo", false],
-    ["Over 6,000 new infections per day in Japan", false],
+    ["Over 6,000 new infections per day in Japan", true, "https://japantoday.com/category/national/Tokyo-reports-record-2-848-new-coronavirus-cases-nationwide-tally-7-629"],
     ["Cluster in the Olympic village", true, "https://english.satarknews.com/two-athletes-test-positive-for-covid-19-in-olympic-village-officials/"],
     ["Media cluster", false],
     ["Volunteer cluster", false],
