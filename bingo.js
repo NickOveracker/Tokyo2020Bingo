@@ -10,7 +10,7 @@ let participantInfections = [
     ["Virgin Islands (ISV) Infection", false],
     ["United Arab Emirates (UAE) Infection", false],
     ["Algeria (ALG) Infection", false],
-    ["Argentina (ARG) Infection", false],
+    ["Argentina (ARG) Infection", true, "https://www.reuters.com/lifestyle/sports/athletics-world-champion-vaulter-kendricks-out-with-covid-says-father-2021-07-29/"],
     ["Aruba (ARU) Infection", false],
     ["Albania (ALB) Infection", false],
     ["Armenia (ARM) Infection", false],
