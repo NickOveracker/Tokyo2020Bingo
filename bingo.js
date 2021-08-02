@@ -230,7 +230,7 @@ let otherEvents = [
     ["Bach catches Covid", false],
     ["Olympic mascots wear masks", false],
     ["Olympic Covid cases are not counted towards the Japanese total", false],
-    ["Half of all volunteers quit", false],
+    ["Half of all volunteers quit", true, "https://www.asahi.com/ajw/articles/14408545"],
     ["Canadians wear those thick sweaty jackets at any time in Japan", false],
     ["Delta becomes the new dominant variant in Japan", false],
     ["No Japanese sponsors run any TV advertising mentioning the Olympics", false],
