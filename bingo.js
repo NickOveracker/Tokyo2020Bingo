@@ -1,6 +1,6 @@
 // thx to https://twitter.com/jamesajack/status/1406946332531585030
 let participantInfections = [
-    ["Greece (GRE) Infection", false],
+    ["Greece (GRE) Infection", true, "https://english.kyodonews.net/tokyo/news/2021/08/dbc1d7259e83-tokyo-olympics-see-18-more-covid-19-cases-total-nearing-300.html"],
     ["Refugee Olympic Team (EOR) Infection", false],
     ["Iceland (ISL) Infection", false],
     ["Ireland (IRL) Infection", false],
