@@ -240,7 +240,7 @@ let otherEvents = [
     ["Athletes complain because of the lack of free condoms", false],
     ["Athletes complain because of happoshu", false],
     ["Streaker in any stadium", false],
-    ["Suga approval dips below 30%", false],
+    ["Suga approval dips below 30%", true, "https://news.yahoo.co.jp/articles/89213d15d447815d1d633e21887c7f8cd612420e"],
     ["China boycotts the Olympics", false],
     ["AKB48 performs during the opening ceremony", false],
     ["Suga dressed as Luigi", false],
