@@ -41,7 +41,7 @@ let participantInfections = [
     ["Austria (AUT) Infection", false],
     ["Oman (OMA) Infection", false],
     ["Netherlands (NED) Infection", true, "https://www.usatoday.com/story/sports/olympics/2021/07/21/2021-olympics-two-out-after-testing-positive-covid-19-tokyo/8038119002/"],
-    ["Ghana (GHA) Infection", false],
+    ["Ghana (GHA) Infection", true, "https://www3.nhk.or.jp/nhkworld/en/news/20210809_15/"],
     ["Cape Verde (CPV) Infection", false],
     ["Guyana (GUY) Infection", false],
     ["Kazakhstan (KAZ) Infection", false],
